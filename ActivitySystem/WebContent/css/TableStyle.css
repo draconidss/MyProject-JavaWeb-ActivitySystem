@@ -1,0 +1,167 @@
+
+            * { 
+                margin: 0; 
+                padding: 0; 
+            }
+            a{
+            text-decoration: none;
+            
+            }
+            a:HOVER{
+            color: green;
+            }
+            body { 
+                font: 14px/1.4 "Microsoft Yahei", Tahoma,Georgia, Serif; 
+            }
+            #page-wrap {
+                margin: 10px;
+                text-align: right;
+            }
+            
+            
+            /* 菜单栏样式 */
+			   
+        .menu {
+        	z-index:100;
+        	top: 0px;
+        	position: fixed;
+            width: 100%;
+            height: 80px;
+/*设置元素水平居中*/
+			text-align: center;
+			background-color: white;
+/*去除内联元素间隙*/
+
+            font-size: 0;
+/*去掉ul自带的.格式*/
+
+            list-style: none;
+            padding: 0;
+           text-decoration: none;
+        }
+
+        .menu li{
+/*将元素转换为行内块元素*/
+
+            display:inline-block;
+            
+            font-size:16px;
+/*将边框合并*/
+
+		text-decoration: none;
+        }
+        .menu a{
+             color: #89D9D0;
+/*去掉a元素的下划线*/
+
+            text-decoration: none;
+        }
+/*鼠标位于元素位置时改变元素样式*/
+
+
+
+        .menu a:hover{
+            color:gray;
+        }
+
+
+            
+            
+            
+            p {
+                margin: 20px 0; 
+            }
+
+            /* 
+            Generic Styling, for Desktops/Laptops 
+            */
+            table { 
+            	text-align:center;
+                width: 100%; 
+                border-collapse: collapse; background:#fff;
+            }
+            /* Zebra striping */
+            tr:nth-of-type(odd) { 
+                background: #eee;
+                text-align: center; 
+            }
+            th { 
+                background: url('../images/table4.jpg');
+                color: white; 
+                font-weight: bold; 
+                text-align: center; 
+            }
+            td, th { 
+                padding: 6px; 
+                border: 1px solid #ccc; 
+                text-align: center; 
+            }
+            @media 
+            only screen and (max-width: 760px),
+            (min-device-width: 768px) and (max-device-width: 1024px)  {
+
+                /* Force table to not be like tables anymore */
+                table, thead, tbody, th, td, tr { 
+                    display: block; 
+                }
+
+                /* Hide table headers (but not display: none;, for accessibility) */
+                thead tr { 
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;
+                }
+
+                tr { border: 1px solid #ccc;text-align: center;  }
+
+                td { 
+                    /* Behave  like a "row" */
+                    border: none;
+                    border-bottom: 1px solid #eee; 
+                    position: relative;
+                    padding-left: 50%; 
+                    text-align: center; 
+                }
+
+                td:before { 
+                    /* Now like a table header */
+                    position: absolute;
+                    /* Top/left values mimic padding */
+                    top: 6px;
+                    left: 6px;
+                    width: 45%; 
+                    padding-right: 10px; 
+                    white-space: nowrap;
+                    text-align: center; 
+                }
+
+                /*
+                Label the data
+                */
+                td:nth-of-type(1):before { content: "Uid"; }
+                td:nth-of-type(2):before { content: "Uname"; }
+                td:nth-of-type(3):before { content: "Password"; }
+                td:nth-of-type(4):before { content: "Super"; }
+                td:nth-of-type(5):before { content: "Execute"; }
+                td:nth-of-type(6):before { content: "数学"; }
+
+            }
+
+            /* Smartphones (portrait and landscape) ----------- */
+            @media only screen
+            and (min-device-width : 320px)
+            and (max-device-width : 480px) {
+                body { 
+                    padding: 0; 
+                    margin: 0;  }
+            }
+
+            /* iPads (portrait and landscape) ----------- */
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+                body { 
+                    width: 100%; 
+                }
+            }
+            
+            
+           

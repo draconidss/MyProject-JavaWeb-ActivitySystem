@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JS日期时间选择插件laydate - 站长素材</title>
+
+<script src="laydate/laydate.js"></script> <!-- 改成你的路径 -->
+<script>
+    lay('#version').html('-v'+ laydate.v);
+
+
+    //时间选择器
+    laydate.render({
+      elem: '#test5'
+      ,type: 'datetime'
+    });
+    
+
+
+</script>
+
+<style>
+ 
+</style>
+
+</head>
+<body>
+
+
+<input type="text" class="demo-input" placeholder="时间选择器" id="test5">
+
+
+</body>
+</html>
