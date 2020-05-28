@@ -1,5 +1,4 @@
-<div align=center><img src="images/logo.png"/></div>
-
+<div align=center><img src="https://cdn.jsdelivr.net/gh/lifealsoisgg/MyProject-JavaWeb-ActivitySystem/images/logo.png"/></div>
 
 ## 链接Link
 
