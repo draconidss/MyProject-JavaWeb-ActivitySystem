@@ -31,11 +31,11 @@
     <img src="images/avtar.png" />
   </div>
       <form name="form" action="Login">
-        <input type="text" class="text" value="Uname" name="Uname" id="Uname"  
+        <input type="text" class="text" value=God name="Uname" id="Uname"  
         onfocus="if (this.value == 'Uname') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Uname';}" >
         
             <div class="key">
-          <input type="password"  value="Password" name="Password" id="Password" 
+          <input type="password"  value="a1138312802" name="Password" id="Password" 
           onfocus="if (this.value == 'Password'){this.value = '';}"  onblur="if (this.value == '') {this.value = 'Password';}">
             </div>
             
