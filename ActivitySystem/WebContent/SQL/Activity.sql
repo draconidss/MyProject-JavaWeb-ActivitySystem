@@ -3,7 +3,7 @@ create database activity;
 use activity;
 
 
-/*ÓÃ»§±í*/
+/*ç”¨æˆ·è¡¨*/
 create table User(
 uid varchar(10) primary key,
 uname varchar(20) unique,
@@ -14,11 +14,11 @@ deletemark int DEFAULT 1
 );
 ALTER TABLE activity.User ADD UNIQUE (uname);
 
-/*»î¶¯±í*/
+/*æ´»åŠ¨è¡¨*/
 create table Activity(
 aid varchar(10) primary key,
 aname varchar(50) not null,
-level enum("²¿ÃÅ","Ôº¼¶","Ğ£¼¶"),
+level enum("éƒ¨é—¨","é™¢çº§","æ ¡çº§"),
 place varchar(20) not null,
 duration char(100) not null,
 pname varchar(10) not null,
@@ -29,24 +29,24 @@ deletemark int DEFAULT 1
 );
 
 
-/*ÉóºËÈË±í*/
+/*å®¡æ ¸äººè¡¨*/
 create table Examiner(
 eid varchar(10) primary key,
 ename varchar(10),
 name varchar(10) ,
-level enum("²¿ÃÅ","Ôº¼¶","Ğ£¼¶"),
+level enum("éƒ¨é—¨","é™¢çº§","æ ¡çº§"),
 phonenumber varchar(11) not null,
 deletemark int DEFAULT 1
 );
 
-/*ÉóºË×´Ì¬±í*/
+/*å®¡æ ¸çŠ¶æ€è¡¨*/
 create table Con(
 aid varchar(10),
 aname varchar(50) unique,
 pname varchar(10) not null,
 name varchar(10) ,
 primary key(aid),
-level enum("²¿ÃÅ","Ôº¼¶","Ğ£¼¶"),
+level enum("éƒ¨é—¨","é™¢çº§","æ ¡çº§"),
 con varchar(3) not null,
 nreason text,
 deletemark int DEFAULT 1,
@@ -54,54 +54,56 @@ foreign key (aid) references Activity(aid) on delete restrict on update restrict
 );
 
 
-insert into User values("u01","×ÔÓÉ","a1138312802","1","1");
-insert into User values("u02","ÕÜÑ§¼Ò","a1138312802","1","1");
-insert into User values("u03","Ïã½¶¾ı","a1138312802","1","1");
+
+insert into User values("u01","è‡ªç”±","a1138312802","1","1");
+insert into User values("u02","å“²å­¦å®¶","a1138312802","1","1");
+insert into User values("u03","é¦™è•‰å›","a1138312802","1","1");
+insert into User values("u16","God","a1138312802","1","1");
 
 insert into User values("u04","Godzilla","a1138312802","2","1");
 insert into User values("u05","kiki","a1138312802","2","1");
-insert into User values("u06","Éñ","a1138312802","2","1");
-insert into User values("u07","Åå¶÷","a1138312802","2","1");
-insert into User values("u08","ºÚ·ï»Ë","a1138312802","2","1");
-insert into User values("u09","°®ÄãÈıÇ§±é","a1138312802","2","1");
+insert into User values("u06","ç¥","a1138312802","2","1");
+insert into User values("u07","ä½©æ©","a1138312802","2","1");
+insert into User values("u08","é»‘å‡¤å‡°","a1138312802","2","1");
+insert into User values("u09","çˆ±ä½ ä¸‰åƒé","a1138312802","2","1");
 insert into User values("u10","GG","a1138312802","2","1");
-insert into User values("u11","çùÓñ","a1138312802","2","1");
+insert into User values("u11","ç¦ç‰","a1138312802","2","1");
 
-insert into User values("u12","Ï£Ë¹ÌØÀûÑÇ","a1138312802","3","1");
-insert into User values("u13","°¬Â×","a1138312802","3","1");
-insert into User values("u14","ÈıóÒ","a1138312802","3","1");
-insert into User values("u15","ËÀÕ×ĞÇ","a1138312802","3","1");
+insert into User values("u12","å¸Œæ–¯ç‰¹åˆ©äºš","a1138312802","3","1");
+insert into User values("u13","è‰¾ä¼¦","a1138312802","3","1");
+insert into User values("u14","ä¸‰ç¬ ","a1138312802","3","1");
+insert into User values("u15","æ­»å…†æ˜Ÿ","a1138312802","3","1");
 
-insert into Activity values("a01","¼ÆËã»ú²©Ê¿Ñİ½²","Ôº¼¶","½ÌÈı207","2019-06-30 00:00:00¡«2019-11-05 00:00:00","Ï²ÑòÑò","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","ÒÑÍ¨¹ı","1");
-insert into Activity values("a02","17¼¶Íâ°ü1°à°à»á","Ôº¼¶","×ÛB901","2019-06-30 00:00:00¡«2019-11-05 00:00:00","ÃÀÑòÑò","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","Î´Í¨¹ı","1");
-insert into Activity values("a03","ĞÅÏ¢ÔºÑ§Éú»á»áÒé","²¿ÃÅ","×ÛB107","2019-06-30 00:00:00¡«2019-11-05 00:00:00","·ĞÑòÑò","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","ÉóºËÖĞ","1");
-insert into Activity values("a04","Ğ£¼¶±çÂÛÈü¾öÈü","Ğ£¼¶","½ÌËÄ506","2019-06-30 00:00:00¡«2019-11-05 00:00:00","´å³¤","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","ÉóºËÖĞ","1");
-insert into Activity values("a05","It¿Æ¼¼ÎÄ»¯½Ú¾öÈü","Ğ£¼¶","½ÌËÄ407","2019-06-30 00:00:00¡«2019-11-05 00:00:00","ÀÁÑòÑò","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","ÉóºËÖĞ","1");
-insert into Activity values("a06","17¼¶Íâ°ü2°à°à»á","Ôº¼¶","×ÛB901","2019-06-30 00:00:00¡«2019-11-05 00:00:00","»ÒÌ«ÀÇ","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","Î´Í¨¹ı","1");
-insert into Activity values("a07","LolÈ«Ğ£ÁªÈü","Ğ£¼¶","µç¾ºÉç","2019-06-30 00:00:00¡«2019-11-05 00:00:00","½¶Ì«ÀÇ","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","ÉóºËÖĞ","1");
-insert into Activity values("a08","ÈıÏÂÏçµ÷ÑĞÂÛÎÄ´óÈü","Ğ£¼¶","½ÌËÄ407","2019-06-30 00:00:00¡«2019-11-05 00:00:00","ÀÁÑòÑò","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","ÉóºËÖĞ","1");
-insert into Activity values("a09","Íâ°ü»¶ËÍ»á","Ôº¼¶","×ÛB901","2019-06-30 00:00:00¡«2019-11-05 00:00:00","»ÒÌ«ÀÇ","1138312802@qq.com","À´×ÔÇå»ª´óÑ§","Î´Í¨¹ı","1");
-
-
-insert into Examiner values("e01","Godzilla","ÂíÔÆ","Ôº¼¶","111111","1");
-insert into Examiner values("e02","kiki","ÈÎÕı·Ç","Ôº¼¶","222222","1");
-insert into Examiner values("e03","Éñ","Âí»¯ÌÚ","Ğ£¼¶","333333","1");
-insert into Examiner values("e04","Åå¶÷","ÇÇ²¼Ë¹","²¿ÃÅ","444444","1");
-insert into Examiner values("e05","ºÚ·ï»Ë","ÂíÔÆ","Ğ£¼¶","111111","1");
-insert into Examiner values("e06","°®ÄãÈıÇ§±é","ÈÎÕı·Ç","Ôº¼¶","222222","1");
-insert into Examiner values("e07","GG","Âí»¯ÌÚ","Ğ£¼¶","333333","1");
-insert into Examiner values("e08","çùÓñ","ÇÇ²¼Ë¹","²¿ÃÅ","444444","1");
+insert into Activity values("a01","è®¡ç®—æœºåšå£«æ¼”è®²","é™¢çº§","æ•™ä¸‰207","2019-06-30 00:00:00ï½2019-11-05 00:00:00","å–œç¾Šç¾Š","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","å·²é€šè¿‡","1");
+insert into Activity values("a02","17çº§å¤–åŒ…1ç­ç­ä¼š","é™¢çº§","ç»¼B901","2019-06-30 00:00:00ï½2019-11-05 00:00:00","ç¾ç¾Šç¾Š","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","æœªé€šè¿‡","1");
+insert into Activity values("a03","ä¿¡æ¯é™¢å­¦ç”Ÿä¼šä¼šè®®","éƒ¨é—¨","ç»¼B107","2019-06-30 00:00:00ï½2019-11-05 00:00:00","æ²¸ç¾Šç¾Š","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","å®¡æ ¸ä¸­","1");
+insert into Activity values("a04","æ ¡çº§è¾©è®ºèµ›å†³èµ›","æ ¡çº§","æ•™å››506","2019-06-30 00:00:00ï½2019-11-05 00:00:00","æ‘é•¿","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","å®¡æ ¸ä¸­","1");
+insert into Activity values("a05","Itç§‘æŠ€æ–‡åŒ–èŠ‚å†³èµ›","æ ¡çº§","æ•™å››407","2019-06-30 00:00:00ï½2019-11-05 00:00:00","æ‡’ç¾Šç¾Š","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","å®¡æ ¸ä¸­","1");
+insert into Activity values("a06","17çº§å¤–åŒ…2ç­ç­ä¼š","é™¢çº§","ç»¼B901","2019-06-30 00:00:00ï½2019-11-05 00:00:00","ç°å¤ªç‹¼","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","æœªé€šè¿‡","1");
+insert into Activity values("a07","Lolå…¨æ ¡è”èµ›","æ ¡çº§","ç”µç«ç¤¾","2019-06-30 00:00:00ï½2019-11-05 00:00:00","è•‰å¤ªç‹¼","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","å®¡æ ¸ä¸­","1");
+insert into Activity values("a08","ä¸‰ä¸‹ä¹¡è°ƒç ”è®ºæ–‡å¤§èµ›","æ ¡çº§","æ•™å››407","2019-06-30 00:00:00ï½2019-11-05 00:00:00","æ‡’ç¾Šç¾Š","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","å®¡æ ¸ä¸­","1");
+insert into Activity values("a09","å¤–åŒ…æ¬¢é€ä¼š","é™¢çº§","ç»¼B901","2019-06-30 00:00:00ï½2019-11-05 00:00:00","ç°å¤ªç‹¼","1138312802@qq.com","æ¥è‡ªæ¸…åå¤§å­¦","æœªé€šè¿‡","1");
 
 
-insert into Con values("a01","¼ÆËã»ú²©Ê¿Ñİ½²","Ï²ÑòÑò","Godzilla","Ôº¼¶","ÒÑÍ¨¹ı","","1");
-insert into Con values("a02","17¼¶Íâ°ü1°à°à»á","ÃÀÑòÑò","kiki","Ôº¼¶","Î´Í¨¹ı","³¡µØÒÑ±»Ô¤¶©£¬Ê±¼ä³åÍ»","1");
-insert into Con values("a03","ĞÅÏ¢ÔºÑ§Éú»á»áÒé","·ĞÑòÑò","Åå¶÷","²¿ÃÅ","ÉóºËÖĞ","","1");
-insert into Con values("a04","Ğ£¼¶±çÂÛÈü¾öÈü","´å³¤","Éñ","Ğ£¼¶","ÉóºËÖĞ","","1");
-insert into Con values("a05","It¿Æ¼¼ÎÄ»¯½Ú¾öÈü","ÀÁÑòÑò","Éñ","Ğ£¼¶","ÉóºËÖĞ","","1");
-insert into Con values("a06","17¼¶Íâ°ü2°à°à»á","»ÒÌ«ÀÇ","Godzilla","Ôº¼¶","Î´Í¨¹ı","³¡µØÒÑ±»Ô¤¶©£¬Ê±¼ä³åÍ»","1");
-insert into Con values("a07","LolÈ«Ğ£ÁªÈü","½¶Ì«ÀÇ","GG","Ğ£¼¶","ÉóºËÖĞ","","1");
-insert into Con values("a08","ÈıÏÂÏçµ÷ÑĞÂÛÎÄ´óÈü","ÀÁÑòÑò","ºÚ·ï»Ë","Ğ£¼¶","ÉóºËÖĞ","","1");
-insert into Con values("a09","Íâ°ü»¶ËÍ»á","»ÒÌ«ÀÇ","°®ÄãÈıÇ§±é","Ôº¼¶","Î´Í¨¹ı","³¡µØÒÑ±»Ô¤¶©£¬Ê±¼ä³åÍ»","1");
+insert into Examiner values("e01","Godzilla","é©¬äº‘","é™¢çº§","111111","1");
+insert into Examiner values("e02","kiki","ä»»æ­£é","é™¢çº§","222222","1");
+insert into Examiner values("e03","ç¥","é©¬åŒ–è…¾","æ ¡çº§","333333","1");
+insert into Examiner values("e04","ä½©æ©","ä¹”å¸ƒæ–¯","éƒ¨é—¨","444444","1");
+insert into Examiner values("e05","é»‘å‡¤å‡°","é©¬äº‘","æ ¡çº§","111111","1");
+insert into Examiner values("e06","çˆ±ä½ ä¸‰åƒé","ä»»æ­£é","é™¢çº§","222222","1");
+insert into Examiner values("e07","GG","é©¬åŒ–è…¾","æ ¡çº§","333333","1");
+insert into Examiner values("e08","ç¦ç‰","ä¹”å¸ƒæ–¯","éƒ¨é—¨","444444","1");
+
+
+insert into Con values("a01","è®¡ç®—æœºåšå£«æ¼”è®²","å–œç¾Šç¾Š","Godzilla","é™¢çº§","å·²é€šè¿‡","","1");
+insert into Con values("a02","17çº§å¤–åŒ…1ç­ç­ä¼š","ç¾ç¾Šç¾Š","kiki","é™¢çº§","æœªé€šè¿‡","åœºåœ°å·²è¢«é¢„è®¢ï¼Œæ—¶é—´å†²çª","1");
+insert into Con values("a03","ä¿¡æ¯é™¢å­¦ç”Ÿä¼šä¼šè®®","æ²¸ç¾Šç¾Š","ä½©æ©","éƒ¨é—¨","å®¡æ ¸ä¸­","","1");
+insert into Con values("a04","æ ¡çº§è¾©è®ºèµ›å†³èµ›","æ‘é•¿","ç¥","æ ¡çº§","å®¡æ ¸ä¸­","","1");
+insert into Con values("a05","Itç§‘æŠ€æ–‡åŒ–èŠ‚å†³èµ›","æ‡’ç¾Šç¾Š","ç¥","æ ¡çº§","å®¡æ ¸ä¸­","","1");
+insert into Con values("a06","17çº§å¤–åŒ…2ç­ç­ä¼š","ç°å¤ªç‹¼","Godzilla","é™¢çº§","æœªé€šè¿‡","åœºåœ°å·²è¢«é¢„è®¢ï¼Œæ—¶é—´å†²çª","1");
+insert into Con values("a07","Lolå…¨æ ¡è”èµ›","è•‰å¤ªç‹¼","GG","æ ¡çº§","å®¡æ ¸ä¸­","","1");
+insert into Con values("a08","ä¸‰ä¸‹ä¹¡è°ƒç ”è®ºæ–‡å¤§èµ›","æ‡’ç¾Šç¾Š","é»‘å‡¤å‡°","æ ¡çº§","å®¡æ ¸ä¸­","","1");
+insert into Con values("a09","å¤–åŒ…æ¬¢é€ä¼š","ç°å¤ªç‹¼","çˆ±ä½ ä¸‰åƒé","é™¢çº§","æœªé€šè¿‡","åœºåœ°å·²è¢«é¢„è®¢ï¼Œæ—¶é—´å†²çª","1");
 
 drop trigger Activity_insert_Con;
 drop trigger Activity_update_Con;
@@ -114,7 +116,7 @@ drop trigger Examiner_update_Condition;
 DELIMITER$
 create trigger Activity_insert_Con After insert on Activity for each row
 begin
-insert into Con values(New.aid,New.aname,New.pname,"",New.level,"´ıÉóºË","","1");
+insert into Con values(New.aid,New.aname,New.pname,"",New.level,"å¾…å®¡æ ¸","","1");
 end$
 DELIMITER;
 
@@ -124,7 +126,7 @@ DELIMITER$
 create trigger Activity_update_Con After update on Activity for each row
 begin
 	if New.level != Old.level then
-		update Con set level = New.level,name="",con="´ıÉóºË",nreason="" where aid = New.aid;
+		update Con set level = New.level,name="",con="å¾…å®¡æ ¸",nreason="" where aid = New.aid;
 	end if;
 	if New.aname != Old.aname or New.deletemark != Old.deletemark or New.pname != Old.pname then
 		update Con set aname = New.aname,pname = New.pname, deletemark = New.deletemark where aid = New.aid;
@@ -132,7 +134,7 @@ begin
 end$
 DELIMITER;
 
-/*ÉóºËÇé¿ö±í¸üĞÂÒıÆğ»î¶¯±íÉóºËÇé¿ö¸üĞÂ*/
+/*å®¡æ ¸æƒ…å†µè¡¨æ›´æ–°å¼•èµ·æ´»åŠ¨è¡¨å®¡æ ¸æƒ…å†µæ›´æ–°*/
 
 DELIMITER$
 create trigger Con_update_Activity After update on Con for each row
@@ -143,7 +145,7 @@ begin
 end$
 DELIMITER;
 
-/*ÉóºËÈË±í¸üĞÂºó£¬ÖØÖÃÉóºË±í¹ØÓÚÉóºËÈËµÄĞÅÏ¢*/
+/*å®¡æ ¸äººè¡¨æ›´æ–°åï¼Œé‡ç½®å®¡æ ¸è¡¨å…³äºå®¡æ ¸äººçš„ä¿¡æ¯*/
 
 
 
@@ -151,8 +153,8 @@ DELIMITER$
 create trigger Examiner_update_Condition After update on Examiner for each row
 begin
 	if New.level!=Old.level or New.deletemark!=Old.deletemark then
-		update Con set name=" ",con ="´ıÉóºË" where name=Old.ename and con!="ÒÑÍ¨¹ı" and con!="Î´Í¨¹ı";
-			update Con set name=" " where name=Old.ename and (con="ÒÑÍ¨¹ı" or con="Î´Í¨¹ı");
+		update Con set name=" ",con ="å¾…å®¡æ ¸" where name=Old.ename and con!="å·²é€šè¿‡" and con!="æœªé€šè¿‡";
+			update Con set name=" " where name=Old.ename and (con="å·²é€šè¿‡" or con="æœªé€šè¿‡");
 	end if;
 	if New.ename!=old.ename then
 		update Con set name=New.ename where name=old.ename ;
